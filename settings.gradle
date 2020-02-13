@@ -1,0 +1,2 @@
+include ':app', ':canvas'
+rootProject.name='Canvas Painting'

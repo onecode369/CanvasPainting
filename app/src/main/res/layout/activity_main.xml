@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <com.github.onecode369.canvas.Canvas
+        android:id="@+id/canvas"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:backgroundColor="#FFF"
+        app:layout_constraintBottom_toTopOf="@+id/seekBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:paintColor="@color/colorPrimary"
+        app:strokeWidth="5" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        style="@style/SeekBar"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toTopOf="@+id/horizontalScrollView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <RelativeLayout
+        android:id="@+id/colors_list"
+        android:layout_width="200dp"
+        android:layout_height="250dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBar"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/color_input"
+            android:layout_width="147dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/color2"
+            android:layout_alignParentStart="true"
+            android:layout_marginEnd="3dp"
+            android:background="#FFFFFF"
+            android:ems="10"
+            android:hint="Hex Code"
+            android:inputType="textPersonName"
+            android:paddingStart="5dp"
+            android:text="#008577"
+            android:textColor="#000000" />
+
+        <TextView
+            android:id="@+id/color_output"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/color4"
+            android:layout_toEndOf="@+id/color_input"
+            android:background="#008577" />
+
+        <TextView
+            android:id="@+id/color1"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/color5"
+            android:layout_alignParentStart="true"
+            android:background="#F44336"
+            android:gravity="center|top"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/color2"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/color6"
+            android:layout_toEndOf="@id/color1"
+            android:background="#E91E63"
+            android:gravity="center|top"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/color3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/color7"
+            android:layout_toEndOf="@id/color2"
+            android:background="#9C27B0"
+            android:gravity="center|top"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/color4"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/color8"
+            android:layout_toEndOf="@+id/color3"
+            android:background="#673AB7"
+            android:gravity="center|top"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/color5"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/color9"
+            android:layout_alignParentStart="true"
+            android:background="#3F51B5"
+            android:gravity="center|top"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/color6"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/color10"
+            android:layout_toEndOf="@+id/color5"
+            android:background="#2196F3"
+            android:gravity="center|top"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/color7"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/color11"
+            android:layout_toEndOf="@+id/color6"
+            android:background="#03A9F4"
+            android:gravity="center|top"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/color8"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/color12"
+            android:layout_toEndOf="@+id/color7"
+            android:background="#00BCD4"
+            android:gravity="center|top"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/color9"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/color13"
+            android:background="#009688"
+            android:gravity="center|top"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/color10"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/color14"
+            android:layout_toEndOf="@+id/color9"
+            android:background="#4CAF50"
+            android:gravity="center|top"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/color11"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/color15"
+            android:layout_toEndOf="@+id/color10"
+            android:background="#8BC34A"
+            android:gravity="center|top"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/color12"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/color16"
+            android:layout_toEndOf="@+id/color11"
+            android:background="#CDDC39"
+            android:gravity="center|top"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/color13"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:background="#FFEB3B"
+            android:gravity="center|top"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/color14"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/color13"
+            android:background="#FFC107"
+            android:gravity="center|top"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/color15"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/color14"
+            android:background="#FF9800"
+            android:gravity="center|top"
+            android:textColor="#FFF" />
+
+        <TextView
+            android:id="@+id/color16"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/color15"
+            android:background="#FF5722"
+            android:gravity="center|top"
+            android:textColor="#FFF" />
+
+    </RelativeLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:scrollbarSize="0.5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/colors"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:tint="#FFF"
+                app:srcCompat="@drawable/brush" />
+
+            <ImageView
+                android:id="@+id/erase"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="13dp"
+                app:srcCompat="@drawable/erase" />
+
+            <ImageView
+                android:id="@+id/line"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:rotation="-45"
+                android:tint="#FFFFFF"
+                app:srcCompat="@drawable/line" />
+
+            <ImageView
+                android:id="@+id/rectangle"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:tint="#FFFFFF"
+                app:srcCompat="@drawable/rectangle" />
+
+            <ImageView
+                android:id="@+id/circle"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                app:srcCompat="@drawable/circle" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
