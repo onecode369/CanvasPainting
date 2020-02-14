@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -272,6 +273,14 @@
                 android:layout_height="50dp"
                 android:padding="10dp"
                 app:srcCompat="@drawable/circle" />
+
+            <ImageView
+                android:id="@+id/save_paint"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:tint="#FFFFFF"
+                app:srcCompat="@drawable/save" />
 
         </LinearLayout>
     </HorizontalScrollView>

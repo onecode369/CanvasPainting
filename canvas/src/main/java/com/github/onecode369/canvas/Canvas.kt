@@ -28,7 +28,6 @@ class Canvas(context: Context, attrs: AttributeSet) : View(context, attrs){
     private var StX : Float = 0f
     private var StY : Float = 0f
 
-
     init {
         context.theme.obtainStyledAttributes(
             attrs,
@@ -147,6 +146,10 @@ class Canvas(context: Context, attrs: AttributeSet) : View(context, attrs){
 
     fun strokeWidth(strokeWidth : Float){
         paint.strokeWidth = strokeWidth
+    }
+
+    fun savePainting() : Bitmap{
+        return extraBitmap
     }
 
     fun drawRect(){
