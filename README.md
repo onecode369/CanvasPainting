@@ -43,7 +43,7 @@ dependencies {
 ## How to implement Canvas Panting to your app
 
 ### Adding editor to your layout
- You can see the [XML file](https://github.com/onecode369/CanvasPanting/blob/master/app/src/main/res/layout/activity_main.xml) to understand how to implement it to your app
+ You can see the [XML file](https://github.com/onecode369/CanvasPainting/blob/master/app/src/main/res/layout/activity_main.xml) to understand how to implement it to your app
 
 ### Using it with your application
 You can see the [Activity File](https://github.com/onecode369/CanvasPainting/tree/master/app/src/main/java/com/github/onecode369/canvasPainting/MainActivity.kt) to understand how to use it
