@@ -1,13 +1,10 @@
 package com.github.onecode369.canvasPainting
 
 import android.Manifest
-import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.graphics.Bitmap.CompressFormat
-import android.graphics.Canvas
 import android.graphics.Color
-import android.net.Uri
+import android.media.MediaScannerConnection
 import android.os.Bundle
 import android.os.Environment
 import android.text.Editable
@@ -15,16 +12,17 @@ import android.text.TextWatcher
 import android.util.Log
 import android.view.View
 import android.widget.SeekBar
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.github.onecode369.andy_handy_animations.slideInLeft
 import com.github.onecode369.andy_handy_animations.slideOutLeft
 import kotlinx.android.synthetic.main.activity_main.*
+import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
-import java.io.OutputStream
+import java.io.IOException
+import java.text.SimpleDateFormat
 import java.util.*
 
 
@@ -40,9 +38,6 @@ class MainActivity : AppCompatActivity() {
 
         resetText()
 
-        val permission = ContextCompat.checkSelfPermission(this,
-            Manifest.permission.WRITE_EXTERNAL_STORAGE)
-
         save_paint.setOnClickListener {
             if (ContextCompat.checkSelfPermission(
                     this,
@@ -51,21 +46,29 @@ class MainActivity : AppCompatActivity() {
                 ActivityCompat.requestPermissions(this,
                     arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),1)
             }else {
-                val content: View = canvas
-                content.isDrawingCacheEnabled = true
-                content.drawingCacheQuality = View.DRAWING_CACHE_QUALITY_HIGH
-                val bitmap = content.drawingCache
-                val path = Environment.getExternalStorageDirectory().absolutePath
-                val file = File("$path/DCIM/${Calendar.getInstance().timeInMillis.toString()}.jpeg")
-                bitmap.compress(CompressFormat.JPEG,100,FileOutputStream(file))
-                Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE).also { mediaScanIntent ->
-                    mediaScanIntent.data = Uri.fromFile(file)
-                    sendBroadcast(mediaScanIntent)
+                val paint = canvas.savePainting()
+                val root =
+                    Environment.getExternalStorageDirectory().toString()
+                val myDir = File("$root/MyCanvas/")
+                myDir.mkdirs()
+                val timeStamp: String = Calendar.getInstance().timeInMillis.toString()
+                val fname = "Paint_$timeStamp.jpeg"
+
+                val file = File(myDir, fname)
+                if (file.exists()) file.delete()
+                try {
+                    val out = FileOutputStream(file)
+                    paint.compress(Bitmap.CompressFormat.JPEG, 100, out)
+                    out.flush()
+                    out.close()
+                } catch (e: java.lang.Exception) {
+                    e.printStackTrace()
                 }
             }
         }
 
         colors.setOnClickListener {
+
             if(colors_list.visibility == View.GONE){
                 colors_list.visibility = View.VISIBLE
                 slideInLeft(colors_list,500)
